@@ -92,13 +92,12 @@ node* deleteInBST(node* root, int key) {
 		//node has both child
 		else {
 			//replacing node with left subtree's max
-
-			node* temp = root->left;
-			while (temp->right) {
-				temp = temp->right;
+			node* temp2 = root->left;
+			while (temp2->right) {
+				temp2 = temp2->right;
 			}
-			root->data = temp->data; //temp = max of left subtree
-			root->left = deleteInBST(root->left, root->data);
+			root->data = temp2->data; // temp2 = max of left subtree
+			root->left = deleteinbst(root->left, temp2->data);
 			return root;
 		}
 	}
