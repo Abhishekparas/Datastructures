@@ -99,14 +99,11 @@ node* deleteinbst(node* root, int keydata) {
 		else {
 			//replace node with left subtree;s max element
 			node* temp2 = root->left;
-			node* temp3 = root->left;
 			while (temp2->right) {
 				temp2 = temp2->right;
 			}
 			root->data = temp2->data; // temp2 = max of left subtree
-			//root->left = deleteinbst(root->left, root->data);
-			delete temp2;
-			temp3->right = NULL;
+			root->left = deleteinbst(root->left, temp2->data);
 			return root;
 		}
 	}
